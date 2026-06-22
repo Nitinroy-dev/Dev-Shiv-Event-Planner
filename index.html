@@ -658,7 +658,15 @@
     const form = document.getElementById('bookingForm');
     const msg = document.getElementById('bookMsg');
     const submitBtn = form.querySelector('button[type="submit"]');
+const submittedTimeIst = document.getElementById('submittedTimeIst');
+    const now = new Date();
 
+    submittedTimeIst.value = new Intl.DateTimeFormat('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      dateStyle: 'medium',
+      timeStyle: 'medium',
+      hour12: true
+    }).format(now) + ' IST';
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
     msg.classList.add('show');
